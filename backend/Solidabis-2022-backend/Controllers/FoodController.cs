@@ -9,7 +9,7 @@ namespace Solidabis_2022_backend.Controllers
     /// API to get the food stats
     /// </summary>
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class FoodController : ControllerBase
     {
         private readonly IConfiguration configuration;

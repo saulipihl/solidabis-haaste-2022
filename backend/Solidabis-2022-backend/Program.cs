@@ -12,9 +12,30 @@ builder.Services.AddScoped<IFineliApiService, FineliApiService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddHttpClient();
 
+var corsPolicyName = "allowingOriginsForCors";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(
+        name: corsPolicyName,
+        builder =>
+        {
+            builder
+                .WithOrigins("http://localhost:4200")
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        }
+    );
+});
+
 var app = builder.Build();
 
-app.UseHttpsRedirection();
+app.UseCors(corsPolicyName);
+
+if (!builder.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 app.UseAuthorization();
 
