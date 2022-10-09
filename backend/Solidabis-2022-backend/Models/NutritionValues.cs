@@ -1,10 +1,20 @@
 ﻿namespace Solidabis_2022_backend.Models
 {
+    /// <summary>
+    /// Object to act as a mapper between the api data objects and stats
+    /// </summary>
     public class NutritionValues
     {
-        public int Energy_kcal { get; set; }
-        public int Carbs_g { get; set; }
-        public int Protein_g { get; set; }
-        public int Fat_g { get; set; } 
+        public NutritionValues(FineliFoodData foodData)
+        {
+            Energy_kcal = foodData.energyKcal;
+            Carbs_g = foodData.carbohydrate;
+            Protein_g = foodData.protein;
+            Fat_g = foodData.fat;
+        }
+        public double? Energy_kcal { get; set; }
+        public double? Carbs_g { get; set; }
+        public double? Protein_g { get; set; }
+        public double? Fat_g { get; set; } 
     }
 }
