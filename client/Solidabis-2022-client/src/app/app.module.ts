@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { LanguageSelectionComponent } from './components/language-selection/language-selection.component'; 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { InstructionsComponent } from './components/instructions/instructions.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     LoadingOverlayComponent,
     TopBarComponent,
     LanguageSelectionComponent,
+    InstructionsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,9 @@
 {
     "UI.English": "English",
-    "UI.Finnish": "Finnish"
+    "UI.Finnish": "Finnish",
+    "UI.Instructions": "Instructions",
+    "UI.instruction-1": "1) Choose your food warrior",
+    "UI.instruction-2": "2) The game will choose an opponent for you",
+    "UI.instruction-3": "3) FIGHT FOR GLORY",
+    "UI.GoodLuck": "~ Good luck ~"
 }

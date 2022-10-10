@@ -1,4 +1,9 @@
 {
     "UI.English": "Englanti",
-    "UI.Finnish": "Suomi"
+    "UI.Finnish": "Suomi",
+    "UI.Instructions": "Ohjeet",
+    "UI.instruction-1": "1) Valitse ruokasoturisi",
+    "UI.instruction-2": "2) Peli valitsee sinulle vastustajan",
+    "UI.instruction-3": "3) TAISTELE KUNNIASTA",
+    "UI.GoodLuck": "~ Onnea matkaan ~"
 }
