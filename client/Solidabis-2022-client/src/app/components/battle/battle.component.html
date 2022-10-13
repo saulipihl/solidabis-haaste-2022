@@ -1,0 +1,14 @@
+<div *ngIf="selectedFighter" id="battle-card" class="card">
+    <div class="card-content">
+        <h2 translate>UI.Battle</h2>
+        <div class="battle">
+            <app-food-warrior [foodInput]="selectedFighter"></app-food-warrior>
+            <div class="vs-section">
+                <span>VS</span>
+                <app-confirm-button [textTranslationId]="'UI.ChooseNewEnemy'" (onConfirmClicked)="chooseRandomEnemy()"></app-confirm-button>        
+            </div>
+            <app-food-warrior [foodInput]="enemyFighter"></app-food-warrior>
+        </div>
+        <app-confirm-button class="confirm-button" [textTranslationId]="'UI.StartFight'" (onConfirmClicked)="onStartFightClicked()"></app-confirm-button>
+    </div>
+</div>

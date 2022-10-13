@@ -12,5 +12,8 @@
     "Food.Cabbage": "Kaali",
     "Food.Hamburger": "Hampurilainen",
     "UI.CharacterSelection": "Hahmon valinta",
-    "UI.Confirm": "Vahvista"
+    "UI.Confirm": "Vahvista",
+    "UI.Battle": "Taistelu",
+    "UI.StartFight": "Aloita taistelu",
+    "UI.ChooseNewEnemy": "Valitse uusi vihollinen"
 }

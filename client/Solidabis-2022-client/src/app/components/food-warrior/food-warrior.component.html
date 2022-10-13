@@ -1,10 +1,10 @@
-<div class="food-warrior"
-    [ngClass]="food?.foodNameTranslationId"
+<div *ngIf="food" class="food-warrior"
+    [ngClass]="food.foodNameTranslationId"
     (click)="chooseFighter()"
     [class.selected]="selected"
 >
-    <img class="character-image" [src]="food?.imageBase64" />
+    <img class="character-image" [src]="food.imageBase64" />
     <div class="title-container">
-        <h4 class="name" translate>{{ food?.foodNameTranslationId }}</h4>
+        <h4 class="name" translate>{{ food.foodNameTranslationId }}</h4>
     </div>
 </div>

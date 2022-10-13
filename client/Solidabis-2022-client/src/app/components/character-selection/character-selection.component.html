@@ -9,7 +9,7 @@
                 <app-food-warrior #warrior
                     class="food-warrior"
                     *ngFor="let food of foodData"
-                    [food]="food"
+                    [foodInput]="food"
                     [selected]="chosenFighter?.foodNameTranslationId === food.foodNameTranslationId"
                     (onFighterClicked)="onFighterClicked(food)"
                 ></app-food-warrior>

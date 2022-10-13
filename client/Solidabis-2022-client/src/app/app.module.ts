@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,13 +8,23 @@ import { LoadingOverlayComponent } from './components/loading-overlay/loading-ov
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { FormsModule } from '@angular/forms';
 import { LanguageSelectionComponent } from './components/language-selection/language-selection.component'; 
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { InstructionsComponent } from './components/instructions/instructions.component';
 import { CharacterSelectionComponent } from './components/character-selection/character-selection.component';
+import { BattleComponent } from './components/battle/battle.component';
 import { FoodWarriorComponent } from './components/food-warrior/food-warrior.component';
 import { ConfirmButtonComponent } from './components/buttons/confirm-button/confirm-button.component';
+import { LocalStorageKeys } from './models/local-storage-keys';
 
+export function appInitializerFactory(translate: TranslateService) {
+  return () => {
+    translate.setDefaultLang(localStorage.getItem(LocalStorageKeys.LanguageCode) || 'en');
+    translate.addLangs(['en', 'fi']);
+    translate.setDefaultLang('en');
+    return translate.use('en').toPromise();
+  };
+}
 
 @NgModule({
   declarations: [
@@ -24,6 +34,7 @@ import { ConfirmButtonComponent } from './components/buttons/confirm-button/conf
     LanguageSelectionComponent,
     InstructionsComponent,
     CharacterSelectionComponent,
+    BattleComponent,
     FoodWarriorComponent,
     ConfirmButtonComponent,
   ],
@@ -40,7 +51,14 @@ import { ConfirmButtonComponent } from './components/buttons/confirm-button/conf
     }
     }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: appInitializerFactory,
+      deps: [TranslateService],
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

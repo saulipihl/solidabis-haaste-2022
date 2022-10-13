@@ -9,10 +9,7 @@ export class TranslationService {
 
   constructor(
     private _translateService: TranslateService,
-  ) {
-    _translateService.addLangs(['en', 'fi']);
-    _translateService.setDefaultLang(localStorage.getItem(LocalStorageKeys.LanguageCode) || 'en');
-  }
+  ) {}
 
   getLanguageOptions(): LanguageOption[] {
     return [

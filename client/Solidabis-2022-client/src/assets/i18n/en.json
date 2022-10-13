@@ -12,5 +12,8 @@
     "Food.Cabbage": "Cabbage",
     "Food.Hamburger": "Hamburger",
     "UI.CharacterSelection": "Character Selection",
-    "UI.Confirm": "Confirm"
+    "UI.Confirm": "Confirm",
+    "UI.Battle": "Battle",
+    "UI.StartFight": "Start the fight",
+    "UI.ChooseNewEnemy": "Choose a new enemy"
 }
