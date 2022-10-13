@@ -6,18 +6,13 @@
                 <div class="left arrow"></div>
             </button>
             <div #warriors class="food-warriors">
-                <div #warrior 
-                    *ngFor="let food of foodData"
+                <app-food-warrior #warrior
                     class="food-warrior"
-                    [ngClass]="food.foodNameTranslationId"
-                    (click)="chooseFighter(food)"
-                    [class.selected]="chosenFighter?.foodNameTranslationId === food.foodNameTranslationId"
-                >
-                    <img class="character-image" [src]="food.imageBase64" />
-                    <div class="title-container">
-                        <h4 class="name" translate>{{ food.foodNameTranslationId }}</h4>
-                    </div>
-                </div>
+                    *ngFor="let food of foodData"
+                    [food]="food"
+                    [selected]="chosenFighter?.foodNameTranslationId === food.foodNameTranslationId"
+                    (onFighterClicked)="onFighterClicked(food)"
+                ></app-food-warrior>
             </div>
             <button class="round" (click)="moveWarriors('left')">
                 <div class="right arrow"></div>

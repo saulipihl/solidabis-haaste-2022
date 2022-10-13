@@ -1,8 +1,6 @@
 @import '../../styles/cards.scss';
 @import '../../styles/colors.scss';
 
-$border-radius: 25px;
-
 .character-selection-container {
     @include card;
 }
@@ -33,20 +31,10 @@ $border-radius: 25px;
 }
 
 .food-warrior {
-    cursor: pointer;
     margin: 30px 0;
+    cursor: pointer;
     flex-shrink: 0;
-    min-width: 200px;
-    width: 200px;
-    height: 250px;
-    background-color: #e5e5e5;
-    border-radius: $border-radius;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid brown;
     transition: scale 0.15s;
     &:hover {
         scale: 1.1;
@@ -81,12 +69,6 @@ $border-radius: 25px;
     }
 }
 
-.character-image {
-    width: inherit;
-    border-top-left-radius: $border-radius;
-    border-top-right-radius: $border-radius;
-}
-
 .title-container {
     display: flex;
     align-items: center;
@@ -95,11 +77,6 @@ $border-radius: 25px;
     & h4 {
         margin: 0;
     }
-}
-
-.selected {
-    -webkit-box-shadow: 1px 2px 21px 6px #7c0505; 
-    box-shadow: 1px 2px 11px 6px #7c0505;
 }
 
 .confirm-button {
