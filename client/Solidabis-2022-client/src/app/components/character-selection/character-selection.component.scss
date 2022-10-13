@@ -1,18 +1,8 @@
 @import '../../styles/cards.scss';
 @import '../../styles/colors.scss';
 
-.character-selection-container {
-    @include card;
-}
-
-.character-selection {
+.card-content {
     @include card-content(80%);
-    display: flex;
-    flex-direction: column;
-
-    & > h2 {
-        align-self: center;
-    }
 }
 
 .character-selector {
@@ -66,16 +56,6 @@
 
     & .right {
         background-image:  url("/assets/images/arrow-right.png");
-    }
-}
-
-.title-container {
-    display: flex;
-    align-items: center;
-    height: 100%;
-
-    & h4 {
-        margin: 0;
     }
 }
 
