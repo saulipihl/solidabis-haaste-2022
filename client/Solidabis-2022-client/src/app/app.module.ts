@@ -11,6 +11,7 @@ import { LanguageSelectionComponent } from './components/language-selection/lang
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { InstructionsComponent } from './components/instructions/instructions.component';
+import { CharacterSelectionComponent } from './components/character-selection/character-selection.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { InstructionsComponent } from './components/instructions/instructions.co
     TopBarComponent,
     LanguageSelectionComponent,
     InstructionsComponent,
+    CharacterSelectionComponent,
   ],
   imports: [
     BrowserModule,

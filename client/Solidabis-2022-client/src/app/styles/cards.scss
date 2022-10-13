@@ -1,0 +1,13 @@
+@import './colors.scss';
+
+@mixin card {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin card-content($width) {
+    width: $width;
+    background-color: $card;
+    border-radius: 25px;
+    padding: 1rem;
+}

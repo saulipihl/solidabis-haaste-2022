@@ -5,5 +5,12 @@
     "UI.instruction-1": "1) Valitse ruokasoturisi",
     "UI.instruction-2": "2) Peli valitsee sinulle vastustajan",
     "UI.instruction-3": "3) TAISTELE KUNNIASTA",
-    "UI.GoodLuck": "~ Onnea matkaan ~"
+    "UI.GoodLuck": "~ Onnea matkaan ~",
+    "Food.Apple": "Omena",
+    "Food.Carrot": "Porkkana",
+    "Food.Potato": "Peruna",
+    "Food.Cabbage": "Kaali",
+    "Food.Hamburger": "Hampurilainen",
+    "UI.CharacterSelection": "Hahmon valinta",
+    "UI.Confirm": "Vahvista"
 }

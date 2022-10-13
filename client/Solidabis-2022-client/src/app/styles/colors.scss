@@ -1,1 +1,12 @@
 $main: orange;
+$card: gold;
+$button-background-color: white;
+$button-hover-color: lightgray;
+
+@mixin button-colors() {
+    background-color: $button-background-color;
+
+    &:hover {
+        background-color: $button-hover-color;
+    }
+}

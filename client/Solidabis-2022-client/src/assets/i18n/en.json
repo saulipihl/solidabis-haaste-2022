@@ -5,5 +5,12 @@
     "UI.instruction-1": "1) Choose your food warrior",
     "UI.instruction-2": "2) The game will choose an opponent for you",
     "UI.instruction-3": "3) FIGHT FOR GLORY",
-    "UI.GoodLuck": "~ Good luck ~"
+    "UI.GoodLuck": "~ Good luck ~",
+    "Food.Apple": "Apple",
+    "Food.Carrot": "Carrot",
+    "Food.Potato": "Potato",
+    "Food.Cabbage": "Cabbage",
+    "Food.Hamburger": "Hamburger",
+    "UI.CharacterSelection": "Character Selection",
+    "UI.Confirm": "Confirm"
 }
