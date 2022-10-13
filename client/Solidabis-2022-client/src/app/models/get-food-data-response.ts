@@ -7,6 +7,7 @@ export interface GetFoodDataResponse {
 interface ProcessedFoodData {
     food: GetFoodDataResponseBaseData,
     stats: Stats,
+    imageBase64: string,
 }
 
 interface GetFoodDataResponseBaseData {

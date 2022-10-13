@@ -5,13 +5,15 @@
     /// </summary>
     public class ProcessedFoodData
     {
-        public ProcessedFoodData(IncludedFood food, Stats stats)
+        public ProcessedFoodData(IncludedFood food, Stats stats, string imageBase64)
         {
             Food = food;
             Stats = stats;
+            ImageBase64 = imageBase64;
         }
 
         public IncludedFood Food { get; }
         public Stats Stats { get; }
+        public string ImageBase64 { get; }
     }
 }

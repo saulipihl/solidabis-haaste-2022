@@ -6,7 +6,7 @@
     public class IncludedFood
     {
         public int FineliId { get; set; }
-        
         public string? FoodNameTranslationId { get; set; }
+        public string? FileName { get; set; }
     }
 }

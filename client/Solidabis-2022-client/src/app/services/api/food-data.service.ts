@@ -30,6 +30,7 @@ export class FoodDataService {
             defence: foodData.stats.defence,
             delay: foodData.stats.delay,
             health: foodData.stats.health,
+            imageBase64: `data:image/png;base64,${foodData.imageBase64}`,
           } as FoodData;
         });
       })
