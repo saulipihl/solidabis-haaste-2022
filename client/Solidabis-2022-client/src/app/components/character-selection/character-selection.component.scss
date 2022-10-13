@@ -79,11 +79,6 @@
     }
 }
 
-.confirm-button {
-    width: 200px;
+app-confirm-button {
     align-self: center;
-    border-radius: 10px;
-    height: 30px;
-    cursor: pointer;
-    @include button-colors();
 }

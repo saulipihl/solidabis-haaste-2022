@@ -13,6 +13,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { InstructionsComponent } from './components/instructions/instructions.component';
 import { CharacterSelectionComponent } from './components/character-selection/character-selection.component';
 import { FoodWarriorComponent } from './components/food-warrior/food-warrior.component';
+import { ConfirmButtonComponent } from './components/buttons/confirm-button/confirm-button.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FoodWarriorComponent } from './components/food-warrior/food-warrior.com
     InstructionsComponent,
     CharacterSelectionComponent,
     FoodWarriorComponent,
+    ConfirmButtonComponent,
   ],
   imports: [
     BrowserModule,

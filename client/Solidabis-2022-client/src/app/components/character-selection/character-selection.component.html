@@ -18,7 +18,7 @@
                 <div class="right arrow"></div>
             </button>
         </div>
-        <button *ngIf="chosenFighter" class="confirm-button" (click)="onConfirmClicked()" translate>UI.Confirm</button>
+        <app-confirm-button [visible]="chosenFighter !== null && chosenFighter !== undefined" (onConfirmClicked)="onConfirmClicked()"></app-confirm-button>
     </div>
 </div>
 
