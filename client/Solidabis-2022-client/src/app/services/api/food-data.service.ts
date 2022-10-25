@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { roundToOneDecimal } from 'src/app/common/functions';
 import { FoodData } from 'src/app/models/food-data';
 import { GetFoodDataResponse } from 'src/app/models/get-food-data-response';
 import { environment } from 'src/environments/environment';
@@ -26,10 +27,10 @@ export class FoodDataService {
           return {
             fineliId: foodData.food.fineliId,
             foodNameTranslationId: foodData.food.foodNameTranslationId,
-            attack: foodData.stats.attack,
-            defence: foodData.stats.defence,
-            delay: foodData.stats.delay,
-            health: foodData.stats.health,
+            attack: roundToOneDecimal(foodData.stats.attack),
+            defence: roundToOneDecimal(foodData.stats.defence),
+            delay: roundToOneDecimal(foodData.stats.delay),
+            health: roundToOneDecimal(foodData.stats.health),
             imageBase64: `data:image/png;base64,${foodData.imageBase64}`,
           } as FoodData;
         });

@@ -7,8 +7,8 @@
             </button>
             <div #warriors class="food-warriors">
                 <app-food-warrior #warrior
-                    class="food-warrior"
                     *ngFor="let food of foodData"
+                    class="food-warrior"
                     [foodInput]="food"
                     [selected]="chosenFighter?.foodNameTranslationId === food.foodNameTranslationId"
                     (onFighterClicked)="onFighterClicked(food)"

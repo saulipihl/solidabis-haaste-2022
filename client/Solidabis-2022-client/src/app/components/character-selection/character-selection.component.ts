@@ -21,9 +21,9 @@ export class CharacterSelectionComponent {
   ) { }
 
   moveWarriors(direction: 'left' | 'right'): void {
-    // + 10 because of the gap
+    // + 20 because of the gap
     this.warriorDivs.first
-    const slideWidth = this.warriorDivs.first.elementRef.nativeElement.clientWidth + 10;
+    const slideWidth = this.warriorDivs.first.elementRef.nativeElement.clientWidth + 20;
     if (this.warriorContainerDiv) {
       if (direction === 'left') {
         this.warriorContainerDiv.nativeElement.scrollLeft += slideWidth;

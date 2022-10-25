@@ -2,12 +2,32 @@
 
 @import './app/styles/colors.scss';
 
+$app-font: Anton, Verdana, Geneva, Tahoma, sans-serif;
+
+@font-face {
+    font-family: 'Anton';
+    src: url('assets/fonts/Anton-Regular.ttf')  format('truetype');
+}
+
 html {
-    width: 100vw;
     height: 100vh;
     background-color: $main;
+    font-family: $app-font;
 }
 
 body {
     margin: 0;
+}
+
+select {
+    border-radius: 5px;
+    font-family: $app-font;
+}
+
+button {
+    font-family: $app-font;
+}
+
+h2 {
+    text-decoration: underline;
 }

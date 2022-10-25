@@ -15,5 +15,14 @@
     "UI.Confirm": "Vahvista",
     "UI.Battle": "Taistelu",
     "UI.StartFight": "Aloita taistelu",
-    "UI.ChooseNewEnemy": "Valitse uusi vihollinen"
+    "UI.CancelFight": "Lopeta taistelu",
+    "UI.ChooseNewEnemy": "Valitse uusi vihollinen",
+    "Log.MatchStarted": "Taistelu alkoi.",
+    "Log.AttackerDoesDamage": "tekee",
+    "Log.Damage": "vahinkoa.",
+    "Log.DefenderHealthLeft": "sinnittelee",
+    "Log.DefenderHealthLeftNone": "kuolee",
+    "Log.Health": "energialla.",
+    "Log.BattleHasEndedWithWinner": "Taistelu on loppunut. Voittaja on ",
+    "Log.BattleHasEndedWithTie": "Taistelu on loppunut. Tasapeli. Kukaan ei voittanut."
 }

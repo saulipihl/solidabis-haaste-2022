@@ -15,5 +15,14 @@
     "UI.Confirm": "Confirm",
     "UI.Battle": "Battle",
     "UI.StartFight": "Start the fight",
-    "UI.ChooseNewEnemy": "Choose a new enemy"
+    "UI.CancelFight": "End the fight",
+    "UI.ChooseNewEnemy": "Choose a new enemy",
+    "Log.MatchStarted": "Match started.",
+    "Log.AttackerDoesDamage": "does",
+    "Log.Damage": "damage.",
+    "Log.DefenderHealthLeft": "has",
+    "Log.DefenderHealthLeftNone": "has",
+    "Log.Health": "health left.",
+    "Log.BattleHasEndedWithWinner": "The battle has ended. The winner is ",
+    "Log.BattleHasEndedWithTie": "The battle has ended. It's a tie. Nobody won."
 }

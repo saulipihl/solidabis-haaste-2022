@@ -15,13 +15,12 @@
 
 .food-warriors {
     display: flex;
-    gap: 10px;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
 .food-warrior {
-    margin: 30px 0;
+    margin: 30px 10px;
     cursor: pointer;
     flex-shrink: 0;
 
@@ -29,6 +28,14 @@
     &:hover {
         scale: 1.1;
     }
+}
+
+.food-warrior:first-child {
+    margin-left: 30px;
+}
+
+.food-warrior:last-child {
+    margin-right: 30px;
 }
 
 .round {

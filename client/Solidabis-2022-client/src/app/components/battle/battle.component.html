@@ -2,13 +2,36 @@
     <div class="card-content">
         <h2 translate>UI.Battle</h2>
         <div class="battle">
-            <app-food-warrior [foodInput]="selectedFighter"></app-food-warrior>
+            <div class="food-warrior-container">
+                <app-food-warrior
+                    [@battle]="battleState?.player?.dead ? 'player-defeated' : battleState?.player?.attacking ? 'player-attack' : 'loading'"
+                    [foodInput]="selectedFighter"></app-food-warrior>
+                <app-progress-bar class="health-bar" [className]="'health-bar'" [icon]="'assets/images/health-icon.png'" [maxValue]="selectedFighter.health" [currentValue]="battleState ? battleState.player.health : selectedFighter.health"></app-progress-bar>
+                <app-progress-bar [className]="'attack-load-bar'" [icon]="'assets/images/attack-icon.png'" [maxValue]="selectedFighter.delay" [currentValue]="battleState?.player?.attackProgressBarProgress"></app-progress-bar>
+            </div>
+            
             <div class="vs-section">
                 <span>VS</span>
                 <app-confirm-button [textTranslationId]="'UI.ChooseNewEnemy'" (onConfirmClicked)="chooseRandomEnemy()"></app-confirm-button>        
             </div>
-            <app-food-warrior [foodInput]="enemyFighter"></app-food-warrior>
+            <div class="food-warrior-container">
+                <app-food-warrior
+                    [@battle]="battleState?.enemy?.dead ? 'enemy-defeated' : battleState?.enemy?.attacking ? 'enemy-attack' : 'loading'"
+                    [foodInput]="enemyFighter"></app-food-warrior>
+
+                <app-progress-bar class="health-bar" [className]="'health-bar'" [icon]="'assets/images/health-icon.png'" [maxValue]="enemyFighter?.health" [currentValue]="battleState ? battleState.enemy.health : enemyFighter?.health"></app-progress-bar>
+                <app-progress-bar [className]="'attack-load-bar'" [icon]="'assets/images/attack-icon.png'" [maxValue]="enemyFighter?.delay" [currentValue]="battleState?.enemy?.attackProgressBarProgress"></app-progress-bar>
+            </div>
         </div>
-        <app-confirm-button class="confirm-button" [textTranslationId]="'UI.StartFight'" (onConfirmClicked)="onStartFightClicked()"></app-confirm-button>
+        <div class="battle-buttons">
+            <app-confirm-button class="confirm-button" [textTranslationId]="'UI.StartFight'" (onConfirmClicked)="onStartFightClicked()"></app-confirm-button>
+            <app-confirm-button *ngIf="battleOngoing" class="confirm-button" [enableDisabling]="false" [textTranslationId]="'UI.CancelFight'" (onConfirmClicked)="onStopTheBattleClicked()"></app-confirm-button>
+        </div>
+        <div #logEntry class="log-entry" *ngFor="let log of battleState?.log">
+            <span>{{ log.time_s }}s</span>
+            <span *ngIf="log.messageTranslationId">{{ log.messageTranslationId | translate }}{{ (log.winnerNameTranslationId || '') | translate }}.</span>
+            <span *ngIf="log.attackerTranslationId && log.attackerDamage">{{ log.attackerTranslationId | translate }} {{ 'Log.AttackerDoesDamage' | translate }} {{ log.attackerDamage | LogNumberPipe }} {{ 'Log.Damage' | translate }}</span>
+            <span *ngIf="log.defenderTranslationId && log.defenderHealth">{{ log.defenderTranslationId | translate }} {{ (log.defenderHealth <= 0 ? 'Log.DefenderHealthLeftNone' : 'Log.DefenderHealthLeft') | translate }} {{ log.defenderHealth | LogNumberPipe }} {{ 'Log.Health' | translate }}</span>
+        </div>
     </div>
 </div>

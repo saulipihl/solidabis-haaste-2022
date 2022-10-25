@@ -16,13 +16,17 @@ import { BattleComponent } from './components/battle/battle.component';
 import { FoodWarriorComponent } from './components/food-warrior/food-warrior.component';
 import { ConfirmButtonComponent } from './components/buttons/confirm-button/confirm-button.component';
 import { LocalStorageKeys } from './models/local-storage-keys';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LogNumberPipe } from './pipes/log-number.pipe';
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
+
 
 export function appInitializerFactory(translate: TranslateService) {
   return () => {
-    translate.setDefaultLang(localStorage.getItem(LocalStorageKeys.LanguageCode) || 'en');
+    const languageCode: string = localStorage.getItem(LocalStorageKeys.LanguageCode) || 'en';
+    translate.setDefaultLang(languageCode);
     translate.addLangs(['en', 'fi']);
-    translate.setDefaultLang('en');
-    return translate.use('en').toPromise();
+    return translate.use(languageCode);
   };
 }
 
@@ -37,9 +41,12 @@ export function appInitializerFactory(translate: TranslateService) {
     BattleComponent,
     FoodWarriorComponent,
     ConfirmButtonComponent,
+    LogNumberPipe,
+    ProgressBarComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
