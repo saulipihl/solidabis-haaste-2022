@@ -1,4 +1,5 @@
-﻿using Solidabis_2022_backend.Models;
+﻿using Microsoft.Extensions.Caching.Memory;
+using Solidabis_2022_backend.Models;
 using System.Text.Json;
 
 namespace Solidabis_2022_backend.Services
@@ -17,22 +18,32 @@ namespace Solidabis_2022_backend.Services
     {
         private readonly string fineliApiAddress = "https://fineli.fi/fineli/api/v1/foods/";
         private readonly HttpClient _httpClient;
-        public FineliApiService(IHttpClientFactory httpClientFactory)
+        private readonly IMemoryCache _cache;
+
+        public FineliApiService(IHttpClientFactory httpClientFactory, IMemoryCache memoryCache)
         {
             _httpClient = httpClientFactory.CreateClient();
+            _cache = memoryCache;
         }
 
         public async Task<FineliFoodData?> FetchFoodDataAsync(int foodId)
         {
+            var url = fineliApiAddress + foodId;
+            var dataFound = _cache.TryGetValue(url, out var cacheFoodData);
+            if (dataFound)
+                return (FineliFoodData?)cacheFoodData;
+            
             var request = new HttpRequestMessage(
                 HttpMethod.Get,
-                fineliApiAddress + foodId
+                url
                 );
             var response = await _httpClient.SendAsync(request);
             if (response.IsSuccessStatusCode)
             {
                 using var contentStream = await response.Content.ReadAsStreamAsync();
-                return await JsonSerializer.DeserializeAsync<FineliFoodData>(contentStream);
+                var foodData = await JsonSerializer.DeserializeAsync<FineliFoodData>(contentStream);
+                _cache.Set(url, foodData);
+                return foodData;
             } else
             {
                 throw new Exception($"No food data found for {foodId}");
