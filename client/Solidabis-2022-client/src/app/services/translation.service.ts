@@ -18,7 +18,7 @@ export class TranslationService {
     ];
   }
 
-  setLanguage(languageCode: string): void {
+  setLanguage(languageCode: LanguageCode): void {
     localStorage.setItem(LocalStorageKeys.LanguageCode, languageCode);
     this._translateService.use(languageCode);
   }

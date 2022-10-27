@@ -23,19 +23,23 @@ export class FoodDataService {
     const url: string = `${this.getFoodApiUrl()}get-stats-fineli`;
     return this._httpClient.get<GetFoodDataResponse>(url).pipe(
       map(response => {
-        return response.processedFoodData.map(foodData => {
-          return {
-            fineliId: foodData.food.fineliId,
-            foodNameTranslationId: foodData.food.foodNameTranslationId,
-            attack: roundToOneDecimal(foodData.stats.attack),
-            defence: roundToOneDecimal(foodData.stats.defence),
-            delay: roundToOneDecimal(foodData.stats.delay),
-            health: roundToOneDecimal(foodData.stats.health),
-            imageBase64: `data:image/png;base64,${foodData.imageBase64}`,
-          } as FoodData;
-        });
+        return this.processFoodData(response);
       })
     )
+  }
+
+  processFoodData(response: GetFoodDataResponse): FoodData[] {
+    return response.processedFoodData.map(foodData => {
+      return {
+        fineliId: foodData.food.fineliId,
+        foodNameTranslationId: foodData.food.foodNameTranslationId,
+        attack: roundToOneDecimal(foodData.stats.attack),
+        defence: roundToOneDecimal(foodData.stats.defence),
+        delay: roundToOneDecimal(foodData.stats.delay),
+        health: roundToOneDecimal(foodData.stats.health),
+        imageBase64: `data:image/png;base64,${foodData.imageBase64}`,
+      } as FoodData;
+    });
   }
 
   getFoodApiUrl(): string {

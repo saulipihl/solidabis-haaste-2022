@@ -1,23 +1,34 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { getTranslatePipeSpyObject, getTranslateServiceSpyObject } from 'src/app/testing/utils';
+import { HttpLoaderFactory, translateServiceMock } from 'src/app/testing/utils';
 import { LanguageSelectionComponent } from '../language-selection/language-selection.component';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 
 import { TopBarComponent } from './top-bar.component';
+import { HttpClient } from '@angular/common/http';
 
 describe('TopBarComponent', () => {
   let component: TopBarComponent;
   let fixture: ComponentFixture<TopBarComponent>;
-  const translateServiceSpy = getTranslateServiceSpyObject();
-  const translatePipeSpy = getTranslatePipeSpyObject();
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TopBarComponent, LanguageSelectionComponent, translatePipeSpy ],
-      imports: [ FormsModule ],
+      declarations: [ TopBarComponent, LanguageSelectionComponent ],
+      imports: [
+        FormsModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient],
+          },
+        }),
+      ],
       providers: [
-        { provide: TranslateService, useValue: translateServiceSpy },
+        {
+          provide: TranslateService,
+          useValue: translateServiceMock
+        }
       ]
     })
     .compileComponents();

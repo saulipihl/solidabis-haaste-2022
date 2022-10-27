@@ -14,6 +14,8 @@ describe('ProgressBarComponent', () => {
 
     fixture = TestBed.createComponent(ProgressBarComponent);
     component = fixture.componentInstance;
+    component.currentValue = 1;
+    component.maxValue = 100;
     fixture.detectChanges();
   });
 
