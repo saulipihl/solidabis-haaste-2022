@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Caching.Memory;
 using Solidabis_2022_backend.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddMemoryCache();
 
 builder.Services.AddScoped<IFineliApiService, FineliApiService>();
 builder.Services.AddScoped<IImageLoader, ImageLoader>();

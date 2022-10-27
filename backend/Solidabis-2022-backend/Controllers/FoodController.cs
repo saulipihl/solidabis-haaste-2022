@@ -51,7 +51,7 @@ namespace Solidabis_2022_backend.Controllers
                 try
                 {
                     var fineliApiFoodData = await _foodDataApiService.FetchFoodDataAsync(food.FineliId);
-                    if (fineliApiFoodData == null || !fineliApiFoodData.IsValid())
+                    if (fineliApiFoodData == null || !fineliApiFoodData.IsValid() || string.IsNullOrEmpty(food.FileName))
                         continue;
 
                     // Map the nutrition values to to stats
