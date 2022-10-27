@@ -1,0 +1,33 @@
+@import '../../styles/cards.scss';
+
+.instructions-container {
+    @include card;
+}
+
+.instructions {
+    @include card-content(70%);
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.column-1 {
+    grid-column: 1 / 2;
+    writing-mode: vertical-rl;
+    transform: rotateZ(180deg);
+    font-size: 3rem;
+    align-self: center;
+    text-decoration: underline;
+}
+
+.column-2 {
+    grid-column: 2 / 4;
+    font-size: 1.3rem;
+    align-self: center;
+}
+
+.column-3 {
+    grid-column: 4 / 6;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import './app/styles/colors.scss';
+
+$app-font: Anton, Verdana, Geneva, Tahoma, sans-serif;
+
+@font-face {
+    font-family: 'Anton';
+    src: url('assets/fonts/Anton-Regular.ttf')  format('truetype');
+}
+
+html {
+    height: 100vh;
+    background-color: $main;
+    font-family: $app-font;
+}
+
+body {
+    margin: 0;
+}
+
+select {
+    border-radius: 5px;
+    font-family: $app-font;
+}
+
+button {
+    font-family: $app-font;
+}
+
+h2 {
+    text-decoration: underline;
+}

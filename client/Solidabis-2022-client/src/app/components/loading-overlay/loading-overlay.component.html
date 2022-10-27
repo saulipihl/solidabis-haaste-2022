@@ -1,0 +1,5 @@
+<!--Loading overlay on top of the page preventing any other actions while waiting for loading-->
+<div *ngIf="loading" class="loading-overlay">
+    <div class="loader"></div>
+    <h1 *ngIf="errorMessage !== ''" translate>{{ errorMessage }}</h1>
+</div>

@@ -1,0 +1,7 @@
+<button 
+    *ngIf="visible"
+    class="confirm-button"
+    [disabled]="disabled"
+    (click)="onClick()"
+    translate
+>{{ textTranslationId }}</button>

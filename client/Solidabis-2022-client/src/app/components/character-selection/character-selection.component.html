@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-content">
+        <h2 translate>UI.CharacterSelection</h2>
+        <div class="character-selector">
+            <button class="round" (click)="moveWarriors('right')">
+                <div class="left arrow"></div>
+            </button>
+            <div #warriors class="food-warriors">
+                <app-food-warrior #warrior
+                    *ngFor="let food of foodData"
+                    class="food-warrior"
+                    [foodInput]="food"
+                    [selected]="chosenFighter?.foodNameTranslationId === food.foodNameTranslationId"
+                    (onFighterClicked)="onFighterClicked(food)"
+                ></app-food-warrior>
+            </div>
+            <button class="round" (click)="moveWarriors('left')">
+                <div class="right arrow"></div>
+            </button>
+        </div>
+        <app-confirm-button [visible]="chosenFighter !== null && chosenFighter !== undefined" (onConfirmClicked)="onConfirmClicked()"></app-confirm-button>
+    </div>
+</div>
+

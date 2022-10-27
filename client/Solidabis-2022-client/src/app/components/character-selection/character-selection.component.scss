@@ -1,0 +1,71 @@
+@import '../../styles/cards.scss';
+@import '../../styles/colors.scss';
+
+.card-content {
+    @include card-content(80%);
+}
+
+.character-selector {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.food-warriors {
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.food-warrior {
+    margin: 30px 10px;
+    cursor: pointer;
+    flex-shrink: 0;
+
+    transition: scale 0.15s;
+    &:hover {
+        scale: 1.1;
+    }
+}
+
+.food-warrior:first-child {
+    margin-left: 30px;
+}
+
+.food-warrior:last-child {
+    margin-right: 30px;
+}
+
+.round {
+    $button-width: 40px;
+    flex-shrink: 0;
+    min-width: $button-width;
+    height: $button-width;
+    width: $button-width;
+    border-radius: 20px;
+    cursor: pointer;
+    @include button-colors();
+
+    & .arrow {
+        $arrow-width-height: calc($button-width - 15px);
+        height: $arrow-width-height;
+        width: $arrow-width-height;
+        background-size: $arrow-width-height;
+        background-repeat: no-repeat;
+        background-position: center-top;
+    }
+
+    & .left {
+        background-image:  url("/assets/images/arrow-left.png");
+    }
+
+    & .right {
+        background-image:  url("/assets/images/arrow-right.png");
+    }
+}
+
+app-confirm-button {
+    align-self: center;
+}
