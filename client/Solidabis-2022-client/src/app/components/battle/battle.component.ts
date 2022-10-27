@@ -104,7 +104,7 @@ export class BattleComponent implements OnInit, OnDestroy {
     }
   }
 
-  updateCharacterStatesAfterAttack(playerState: CharacterState, enemyState: CharacterState, character: CharacterIdentity): void {
+  private updateCharacterStatesAfterAttack(playerState: CharacterState, enemyState: CharacterState, character: CharacterIdentity): void {
     if (!this.battleState) {
       return;
     }
@@ -150,19 +150,13 @@ export class BattleComponent implements OnInit, OnDestroy {
   }
 
   private setInitialBattleState(): void {
+    if (!this.selectedFighter || !this.enemyFighter) {
+      return;
+    }
+
     this.battleState = {
-      player: {
-        attacking: false,
-        attackProgressBarProgress: 0,
-        dead: false,
-        health: this.selectedFighter?.health || 0,
-      },
-      enemy: {
-        attacking: false,
-        attackProgressBarProgress: 0,
-        dead: false,
-        health: this.enemyFighter?.health || 0,
-      },
+      player: this.getCharacterInitialState(this.selectedFighter),
+      enemy: this.getCharacterInitialState(this.enemyFighter),
       time: 0,
       log: [{
         time_s: 0,
@@ -215,7 +209,7 @@ export class BattleComponent implements OnInit, OnDestroy {
     });
   }
 
-  calculateDamage(attacker: FoodData, defender: FoodData): number {
+  private calculateDamage(attacker: FoodData, defender: FoodData): number {
     return attacker.attack - attacker.attack * (defender.defence / 100);
   }
 
@@ -227,6 +221,19 @@ export class BattleComponent implements OnInit, OnDestroy {
     const availableFighters = this.foodData.filter(food => food.foodNameTranslationId !== this.enemyFighter?.foodNameTranslationId && food.foodNameTranslationId !== this.selectedFighter?.foodNameTranslationId);
     const randomIndex: number = randomInt(0, availableFighters.length - 1);
     this.enemyFighter = availableFighters[randomIndex];
+    if (this.battleState && this.selectedFighter) {
+      this.battleState.enemy = this.getCharacterInitialState(this.enemyFighter);
+      this.battleState.player = this.getCharacterInitialState(this.selectedFighter);
+    }
+  }
+
+  private getCharacterInitialState(resetData: FoodData): CharacterState {
+    return {
+      attacking: false,
+      attackProgressBarProgress: 0,
+      dead: false,
+      health: resetData.health,
+    };
   }
 }
 

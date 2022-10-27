@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-progress-bar',
@@ -10,6 +10,4 @@ export class ProgressBarComponent {
   @Input() icon: string | undefined;
   @Input() maxValue: number | undefined;
   @Input() currentValue: number | undefined;
-
-  constructor() { }
 }

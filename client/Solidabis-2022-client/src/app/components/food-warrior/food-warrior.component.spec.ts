@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
+import { translateServiceMock } from 'src/app/testing/utils';
 
 import { FoodWarriorComponent } from './food-warrior.component';
 
@@ -10,6 +12,12 @@ describe('FoodWarriorComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ FoodWarriorComponent ],
+      providers: [
+        {
+          provide: TranslateService,
+          useValue: translateServiceMock
+        }
+      ]
     })
     .compileComponents();
 

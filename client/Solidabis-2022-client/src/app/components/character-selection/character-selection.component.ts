@@ -42,7 +42,7 @@ export class CharacterSelectionComponent {
       this._eventService.confirmFighter(this.chosenFighter);
       setTimeout(() => {
         document.getElementById('battle-card')?.scrollIntoView({ behavior: 'smooth' });
-      }, 10)
+      }, 100);
     }
   }
 }

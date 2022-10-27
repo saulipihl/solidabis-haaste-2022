@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { FoodData } from 'src/app/models/food-data';
 import { EventService } from 'src/app/services/event.service';
@@ -14,12 +15,14 @@ export class FoodWarriorComponent implements OnInit, OnChanges, OnDestroy {
   @Input() selected: boolean = false;
   @Output() onFighterClicked: EventEmitter<FoodData> = new EventEmitter<FoodData>();
   food: FoodData | undefined;
+  foodName: string = '';
   eventServiceSubscription: Subscription | undefined;
   disabled: boolean = false;
 
   constructor(
     public elementRef: ElementRef,
     private _eventService: EventService,
+    private _translate: TranslateService,
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +32,7 @@ export class FoodWarriorComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnChanges(): void {
+    this.foodName = this.foodInput?.foodNameTranslationId ? this._translate.instant(this.foodInput.foodNameTranslationId) : '';
     requestAnimationFrame(() => {
       this.food = this.foodInput;
     });
