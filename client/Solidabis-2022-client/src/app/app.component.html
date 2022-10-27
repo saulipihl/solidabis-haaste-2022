@@ -1,0 +1,9 @@
+<app-loading-overlay></app-loading-overlay>
+<div *ngIf="foodData.length > 0" class="content">
+  <header>
+    <app-top-bar></app-top-bar>
+  </header>
+  <app-instructions></app-instructions>
+  <app-character-selection [foodData]="foodData"></app-character-selection>
+  <app-battle [foodData]="foodData"></app-battle>
+</div>

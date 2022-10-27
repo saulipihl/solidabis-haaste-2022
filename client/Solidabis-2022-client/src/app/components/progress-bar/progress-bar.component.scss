@@ -1,0 +1,34 @@
+@mixin progress-bar-main-style() {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    img {
+        width: 25px;
+    }
+}
+
+progress {
+    width: 100%;
+}
+
+.attack-load-bar {
+    @include progress-bar-main-style();
+    img {
+        filter: hue-rotate(110deg) brightness(2); // Change from red to green
+    }
+    progress {
+        accent-color: green;
+    }
+}
+
+
+.health-bar {
+    @include progress-bar-main-style();
+    margin: 10px 0;
+    img {
+        width: 25px;
+    }
+    progress {
+        accent-color: red;
+    }
+}

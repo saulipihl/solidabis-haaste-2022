@@ -1,0 +1,12 @@
+$main: black;
+$yellow: gold;
+$button-background-color: white;
+$button-hover-color: lightgray;
+
+@mixin button-colors() {
+    background-color: $button-background-color;
+
+    &:not(button:disabled, button[disabled]):hover {
+        background-color: $button-hover-color;
+    }
+}

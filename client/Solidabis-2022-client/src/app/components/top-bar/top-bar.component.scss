@@ -1,0 +1,36 @@
+@import '../../styles/colors.scss';
+
+.top-bar-container {
+    height: 100px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    border-bottom: 6px double $yellow;
+    & .title, .language-selection {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.left-side {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.title {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    font-size: 3rem;
+    color: $yellow;
+}
+
+.language-selection {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    font-size: 1.5rem;
+}
+
+app-language-selection {
+    width: 50%;
+}

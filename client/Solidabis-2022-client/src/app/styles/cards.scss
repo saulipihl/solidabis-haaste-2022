@@ -1,0 +1,23 @@
+@import './colors.scss';
+
+@mixin card {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    @include card;
+}
+
+@mixin card-content($width) {
+    width: $width;
+    background-color: $yellow;
+    border-radius: 25px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    & > h2 {
+        align-self: center;
+    }
+}

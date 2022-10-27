@@ -9,19 +9,25 @@ namespace Solidabis_2022_backend.Controllers
     /// API to get the food stats
     /// </summary>
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class FoodController : ControllerBase
     {
         private readonly IConfiguration configuration;
         private readonly IFineliApiService _foodDataApiService;
+        private readonly IImageLoader imageLoader;
+        private readonly IByteEncoder byteEncoder;
 
         public FoodController(
             IConfiguration configuration,
-            IFineliApiService foodDataApiService
+            IFineliApiService foodDataApiService,
+            IImageLoader imageLoader,
+            IByteEncoder byteEncoder
         )
         {
             this.configuration = configuration;
             _foodDataApiService = foodDataApiService;
+            this.imageLoader = imageLoader;
+            this.byteEncoder = byteEncoder;
         }
 
         /// <summary>
@@ -51,7 +57,12 @@ namespace Solidabis_2022_backend.Controllers
                     // Map the nutrition values to to stats
                     var nutritionValues = new NutritionValues(fineliApiFoodData);
                     var stats = new Stats(nutritionValues);
-                    processedFoodData.Add(new ProcessedFoodData(food, stats));
+
+                    // Load the image and encode it
+                    var imageBytes = await imageLoader.LoadImageAsync(food.FileName);
+                    var encodedImage = byteEncoder.EncodeToBase64(imageBytes);
+
+                    processedFoodData.Add(new ProcessedFoodData(food, stats, encodedImage));
                 } catch (Exception)
                 {
                     continue;
