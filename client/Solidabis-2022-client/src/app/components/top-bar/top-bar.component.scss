@@ -1,8 +1,10 @@
+@import '../../styles/colors.scss';
+
 .top-bar-container {
     height: 100px;
     display: grid;
     grid-template-columns: auto auto auto auto;
-    border-bottom: 6px double firebrick;
+    border-bottom: 6px double $yellow;
     & .title, .language-selection {
         display: flex;
         flex-direction: row;
@@ -20,6 +22,7 @@
     grid-column-start: 2;
     grid-column-end: 4;
     font-size: 3rem;
+    color: $yellow;
 }
 
 .language-selection {
