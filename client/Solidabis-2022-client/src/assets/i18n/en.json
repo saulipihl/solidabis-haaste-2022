@@ -24,5 +24,6 @@
     "Log.DefenderHealthLeftNone": "has",
     "Log.Health": "health left.",
     "Log.BattleHasEndedWithWinner": "The battle has ended. The winner is ",
-    "Log.BattleHasEndedWithTie": "The battle has ended. It's a tie. Nobody won."
+    "Log.BattleHasEndedWithTie": "The battle has ended. It's a tie. Nobody won.",
+    "Error.FoodDataFetchErrorMessage": "Something happened while fetching the data. Please refresh the page."
 }

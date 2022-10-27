@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
 import { LoadingService } from './components/loading-overlay/loading.service';
@@ -17,7 +18,10 @@ export class AppComponent implements OnInit {
     private _foodDataService: FoodDataService,
     private _loadingService: LoadingService,
     private _translateService: TranslateService,
-  ) { }
+    private _titleService: Title,
+  ) { 
+    this._titleService.setTitle('Food fight');
+  }
 
   ngOnInit(): void {
     this._loadingService.instantiateLoading();
@@ -28,6 +32,8 @@ export class AppComponent implements OnInit {
       forkJoin([this._foodDataService.getFineliFoodStats(), this._translateService.get('dummyTranslation')]).subscribe(data => {
         this.foodData = data[0];
         this._loadingService.sendLoadEvent('food-data', false);          
+      }, () => {
+        this._loadingService.onError('Error.FoodDataFetchErrorMessage');
       });
     });
   }

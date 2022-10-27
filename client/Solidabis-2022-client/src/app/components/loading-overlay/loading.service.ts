@@ -8,6 +8,7 @@ export class LoadingService {
   loadState: Map<string, boolean> = new Map(); // State for the loading
   loadEventSubject = new Subject<LoadEvent>(); // When loading starts/ends, it's send to this subject
   loadStateSubject = new Subject<boolean>(); // Used to inform if something is still loading based on the state
+  errorOcurredSubject = new Subject<string>(); // Used to show an error message if something happens during loading
 
   constructor() {}
 
@@ -37,6 +38,10 @@ export class LoadingService {
    */
   sendLoadEvent(loadId: LoadId, loading: boolean): void {
     this.loadEventSubject.next({loadId, loading} as LoadEvent);
+  }
+
+  onError(errorMessageTranslateId: string): void {
+    this.errorOcurredSubject.next(errorMessageTranslateId);
   }
 }
 

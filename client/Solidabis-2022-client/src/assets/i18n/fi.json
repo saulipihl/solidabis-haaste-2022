@@ -24,5 +24,6 @@
     "Log.DefenderHealthLeftNone": "kuolee",
     "Log.Health": "energialla.",
     "Log.BattleHasEndedWithWinner": "Taistelu on loppunut. Voittaja on ",
-    "Log.BattleHasEndedWithTie": "Taistelu on loppunut. Tasapeli. Kukaan ei voittanut."
+    "Log.BattleHasEndedWithTie": "Taistelu on loppunut. Tasapeli. Kukaan ei voittanut.",
+    "Error.FoodDataFetchErrorMessage": "Jotain tapahtui datan haussa. Yritä päivittää sivu."
 }

@@ -8,6 +8,7 @@ import { LoadingService } from './loading.service';
 })
 export class LoadingOverlayComponent implements OnInit {
   loading: boolean = false;
+  errorMessage: string = '';
 
   constructor(
     private _loadingService: LoadingService,
@@ -16,6 +17,10 @@ export class LoadingOverlayComponent implements OnInit {
   ngOnInit(): void {
     this._loadingService.loadStateSubject.subscribe(loading => {
       this.loading = loading;
+    });
+
+    this._loadingService.errorOcurredSubject.subscribe(errorMessage => {
+      this.errorMessage = errorMessage;
     });
   }
 

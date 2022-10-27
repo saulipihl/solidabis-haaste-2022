@@ -1,20 +1,26 @@
+@import '../../styles/colors.scss';
+
 .loading-overlay {
     width: 100vw;
     height: 100vh;
     position: absolute;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    opacity: 0.5;
 }
 
 .loader {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 15px solid orange;
+    border: 15px solid $yellow;
     border-top: 15px solid black;
     animation: spin 1s ease-in-out infinite;
+}
+
+h1 {
+    color: $yellow;
 }
 
 @keyframes spin {
